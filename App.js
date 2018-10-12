@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Header, Item, Input, Icon, Content, Button, Footer, FooterTab, Badge, Text } from 'native-base';
-import { AppRegistry, View } from 'react-native';
+import { AppRegistry, View, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
@@ -14,12 +14,48 @@ import Noti from "./components/Noti";
 import Userprofile from "./components/Userprofile";
 import Restaurantdetail from "./components/Restaurantdetail";
 import GoneSin from "./components/GoneSin";
+import {Constants} from 'expo';
+
+import firebase from 'firebase';
+import Expo from 'expo';
+
+
+const id="276082606569782";
 
 export default class LotsOfGreetings extends Component {
+
+  login = async () => {
+    const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync(id, {
+      permissions: ['public_profile'],
+    });
+  if (type === 'success') {
+    // Get the user's name using Facebook's Graph API
+    const response = await fetch(
+      `https://graph.facebook.com/me?access_token=${token}`);
+      Alert.alert(
+      'Logged in!',
+      `Hi ${(await response.json()).name}!`,
+    );
+    
+  }
+  }
+    
+  get button() {
+    return(
+      <TouchableOpacity onPress={() => this.login()}>
+        <View>
+          <Text style={{color:'black'}}>Login to Facebook</Text>
+        </View>
+      </TouchableOpacity>
+    )
+  }
+
   render() {
     return (
-
     <Container>
+      <Header>
+        {this.button}
+      </Header>
       <Router>
         <Scene key="root">
           <Scene key="home" component={Home} title='Home'/>
@@ -33,15 +69,6 @@ export default class LotsOfGreetings extends Component {
       <Footer>
         <Footer_main/>
       </Footer>    
-      {/* <NativeRouter>
-      <Switch>
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/favourite" component={Favourite} />
-          <Footer>
-          <Route path="/" component={Footer_main} />
-          </Footer>
-      </Switch>
-      </NativeRouter> */}
 
     </Container>
     );
