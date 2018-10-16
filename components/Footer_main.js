@@ -6,23 +6,23 @@ import {Actions} from 'react-native-router-flux';
 
 export default ({history}) => (
     <Container >
-        <Footer style = {{backgroundColor:'#2c2c2c' , color: 'white', borderColor: 'black'}}>
+        <Footer style = {{backgroundColor:'white' , color: 'white', borderColor: 'black'}}>
           <FooterTab>
             <Button vertical onPress={Actions.home}>
-            <Ionicons name="ios-search" size={40} color="white" /> 
-              {/* <Text style = {{fontStyle:'bold' ,fontSize: '13' ,color: 'black'}}>SEARCH</Text> */}
+            <Ionicons name="ios-search" size={30} color="#585858" /> 
+              <Text style = {{fontStyle:'bold' ,fontSize: '13' ,color: '#585858'}}>SEARCH</Text>
             </Button>
             <Button vertical onPress={Actions.favourite}>
-              <Ionicons name="md-heart" size={40} color="white" /> 
-              {/* <Text style = {{fontSize: '13' ,color: 'black'}}>FAVOURITE</Text> */}
+              <Ionicons name="md-heart" size={30} color="#585858" /> 
+              <Text style = {{fontSize: '13' ,color: '#585858'}}>FAVOURITE</Text>
             </Button>
             <Button vertical onPress={Actions.noti}>
-              <Ionicons name="ios-notifications" size={40} color="white" /> 
-              {/* <Text style = {{fontSize: '13' ,color: 'black'}}>NOTI</Text> */}
+              <Ionicons name="ios-notifications" size={30} color="#585858" /> 
+              <Text style = {{fontSize: '13' ,color: '#585858'}}>NOTI</Text>
             </Button>
             <Button vertical onPress={Actions.gonesin}>
-              <Ionicons name="ios-restaurant" size={40} color="white" /> 
-              {/* <Text style = {{fontSize: '13' ,color: 'black'}}>GONE SIN</Text> */}
+              <Ionicons name="ios-restaurant" size={30} color="#585858" /> 
+              <Text style = {{fontSize: '13' ,color: '#585858'}}>GONE SIN</Text>
             </Button>
           </FooterTab>
         </Footer>
