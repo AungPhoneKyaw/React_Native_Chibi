@@ -6,10 +6,8 @@ import { Col, Row, Grid } from 'react-native-easy-grid';
 
 import {NativeRouter, Switch, Route} from 'react-router-native';
 
-
 import Main from "./Main.js";
 import Login from "./components/Login";
-
 
 
 
@@ -24,7 +22,6 @@ export default class LotsOfGreetings extends Component {
           <Route exact path="/" component={Login} />
         </Switch>
       </NativeRouter>
-
     </Container>
     );
   }
